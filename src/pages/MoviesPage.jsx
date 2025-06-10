@@ -2,10 +2,12 @@ import toast, { Toaster } from 'react-hot-toast';
 import { useState, useEffect } from 'react';
 import MovieList from '../components/MovieList/MovieList';
 import { searchMovie } from '../tmdbApi';
+import { useSearchParams } from 'react-router-dom';
 
 export default function MoviesPage() {
   const [movie, setMovie] = useState([]);
-  const [query, setQuery] = useState('');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const query = searchParams.get('query') || '';
 
   useEffect(() => {
     if (!query) return;
@@ -29,7 +31,7 @@ export default function MoviesPage() {
       toast.error('Error');
       return;
     }
-    setQuery(topic);
+    setSearchParams({ query: topic });
     form.reset();
   };
   return (
