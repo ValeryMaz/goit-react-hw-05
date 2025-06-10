@@ -16,17 +16,17 @@ export default function MovieList({ trends }) {
         <li key={trend.id} className={clsx(css.movieLi)}>
           <NavLink to={`/Movies/${trend.id}`} state={{ from: location }}>
             <p>{trend.title}</p>
-          </NavLink>
 
-          <img
-            src={
-              trend.backdrop_path
-                ? `https://image.tmdb.org/t/p/w500/${trend.backdrop_path}`
-                : defaultImg
-            }
-            alt="movie poster"
-            width={250}
-          />
+            <img
+              src={
+                trend.backdrop_path
+                  ? `https://image.tmdb.org/t/p/w500/${trend.backdrop_path}`
+                  : defaultImg
+              }
+              alt="movie poster"
+              width={250}
+            />
+          </NavLink>
         </li>
       ))}
     </ul>
