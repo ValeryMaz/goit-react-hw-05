@@ -41,3 +41,16 @@ export const getMovieReviews = async movieID => {
   const response = await tmdb.get(`/movie/${movieID}/reviews`);
   return response.data.results;
 };
+
+export const searchMovie = async query => {
+  try {
+    const response = await tmdb.get('search/movie', {
+      params: {
+        query: query,
+      },
+    });
+    return response.data.results;
+  } catch (error) {
+    console.error('oops', error);
+  }
+};

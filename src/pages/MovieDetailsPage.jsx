@@ -3,18 +3,18 @@ import { getMovieById } from '../tmdbApi';
 
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Outlet } from 'react-router-dom';
 
 export default function MovieDetailsPage() {
   const [movie, setMovie] = useState(null);
   const [error, setError] = useState(null);
 
+  const location = useLocation();
+  const BackLinkHref = useRef(location.state);
+
   const { movieID } = useParams();
   //   const movie = getMovietById(id);
-
-  const location = useLocation();
-  const BackLinkHref = location.state?.from || '/Movies';
 
   useEffect(() => {
     async function fetchMovie() {
@@ -37,21 +37,27 @@ export default function MovieDetailsPage() {
   if (error) {
     return <div>{error}</div>;
   }
-
+  const defaultImg =
+    'https://dl-media.viber.com/10/share/2/long/vibes/icon/image/0x0/95e0/5688fdffb84ff8bed4240bcf3ec5ac81ce591d9fa9558a3a968c630eaba195e0.jpg';
   return (
     <>
-      <Link to={BackLinkHref}>Go Back</Link>
+      <Link to={BackLinkHref.current ?? '/Movies'}>Go Back</Link>
 
       <div>
         <li>
           <img
-            src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
+            src={
+              movie.backdrop_path
+                ? `https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`
+                : defaultImg
+            }
             alt="movie poster"
+            width={250}
           />
           {movie.title}
-          {movie.overview}
-          {movie.vote_average}
-          {movie.genres.map(genre => genre.name).join(',')}
+          <p>Movie description: {movie.overview}</p>
+          <p>Movie Rating {`${(movie.vote_average * 10).toFixed(0)}%`}</p>
+          <p>Genres: {movie.genres.map(genre => genre.name).join(',')}</p>
         </li>
       </div>
       <div>
