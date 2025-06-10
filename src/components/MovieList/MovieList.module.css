@@ -1,0 +1,31 @@
+.movieList {
+  list-style: none;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+
+  flex-wrap: wrap;
+}
+
+.movieLi {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: solid 1px rgb(175, 174, 208);
+  border-radius: 10px;
+  padding: 3px;
+  width: calc((100% - 36px) / 4);
+  box-shadow: 0 4px 8px rgba(65, 57, 220, 0.2);
+  cursor: pointer;
+  color: rgb(175, 174, 208);
+  transition: 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    box-shadow 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.movieLi:hover {
+  color: rgb(66, 62, 186);
+  box-shadow: 0 0 20px 8px rgba(41, 32, 207, 0.6);
+}

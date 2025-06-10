@@ -1,0 +1,54 @@
+.movieInfoList {
+  list-style: none;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 0;
+}
+
+.movieLiElement {
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+  border: 0.5px solid rgb(100, 100, 183);
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 0 2px 4px rgba(127, 135, 170, 0.6);
+  background-color: rgb(252, 252, 252);
+}
+
+.movieInfoContainer {
+  max-width: 500px;
+}
+
+.titleFontMain {
+  font-weight: 900;
+  font-size: 30px;
+}
+
+.titleFont {
+  font-weight: 600;
+}
+
+.additional {
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.goBackBtn {
+  display: block;
+  background-color: rgb(183, 148, 216);
+  color: black;
+  width: 100px;
+  margin: 0 auto;
+  border-radius: 20px;
+  margin-bottom: 30px;
+  padding: 15px;
+}
+
+.goBackBtn:hover {
+  background-color: rgb(175, 127, 221);
+  color: black;
+}

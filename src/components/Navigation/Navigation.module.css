@@ -1,0 +1,29 @@
+.ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.navLink {
+  display: block;
+  color: black;
+  text-decoration: none;
+  padding: 10px;
+  border: 0.5px solid rgb(192, 208, 228);
+  border-radius: 20px;
+  font-size: 19px;
+  background-color: rgb(242, 238, 246);
+}
+
+.active {
+  color: black;
+  background-color: rgb(201, 176, 228);
+}
+
+.navLink:hover {
+  color: black;
+  background-color: rgb(168, 145, 193);
+}
